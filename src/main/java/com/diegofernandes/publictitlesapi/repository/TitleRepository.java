@@ -1,4 +1,4 @@
-package com.diegofernandes.webdatacollector.repository;
+package com.diegofernandes.publictitlesapi.repository;
 
 import java.util.List;
 

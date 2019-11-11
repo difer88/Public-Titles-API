@@ -1,4 +1,4 @@
-package com.diegofernandes.webdatacollector.model;
+package com.diegofernandes.publictitlesapi.model;
 
 import java.util.Objects;
 

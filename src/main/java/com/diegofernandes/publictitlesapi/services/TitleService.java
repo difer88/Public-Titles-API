@@ -1,6 +1,6 @@
-package com.diegofernandes.webdatacollector.services;
+package com.diegofernandes.publictitlesapi.services;
 
-import com.diegofernandes.webdatacollector.repository.TitleRepositoryImpl;
+import com.diegofernandes.publictitlesapi.repository.TitleRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.diegofernandes.webdatacollector.constants;
+package com.diegofernandes.publictitlesapi.constants;
 
 public final class CommonConstants {
 

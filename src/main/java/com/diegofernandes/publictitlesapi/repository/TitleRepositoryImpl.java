@@ -1,7 +1,7 @@
-package com.diegofernandes.webdatacollector.repository;
+package com.diegofernandes.publictitlesapi.repository;
 
-import com.diegofernandes.webdatacollector.constants.CommonConstants;
-import com.diegofernandes.webdatacollector.model.Title;
+import com.diegofernandes.publictitlesapi.constants.CommonConstants;
+import com.diegofernandes.publictitlesapi.model.Title;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

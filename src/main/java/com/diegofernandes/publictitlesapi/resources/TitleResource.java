@@ -1,6 +1,6 @@
-package com.diegofernandes.webdatacollector.resources;
+package com.diegofernandes.publictitlesapi.resources;
 
-import com.diegofernandes.webdatacollector.services.TitleService;
+import com.diegofernandes.publictitlesapi.services.TitleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
