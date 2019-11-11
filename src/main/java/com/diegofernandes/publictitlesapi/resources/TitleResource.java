@@ -16,13 +16,12 @@ public class TitleResource {
     @Autowired
     private TitleService titleService;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<String>> findAll(){
-
-        List<String> titleNamesList = titleService.getNamesList();
-
+    @RequestMapping(value = "/alltitlenames", method = RequestMethod.GET)
+    public ResponseEntity<List<String>> findAllTitleNames(){
+        List<String> titleNamesList = titleService.getTitleNamesList();
         return ResponseEntity.ok().body(titleNamesList);
-
     }
+
+
 
 }

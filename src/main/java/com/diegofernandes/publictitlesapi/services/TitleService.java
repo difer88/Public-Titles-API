@@ -12,7 +12,7 @@ public class TitleService {
     @Autowired
     private TitleRepositoryImpl titleRepository;
 
-    public List<String> getNamesList() {
+    public List<String> getTitleNamesList() {
         return titleRepository.getNamesList();
     }
 }
