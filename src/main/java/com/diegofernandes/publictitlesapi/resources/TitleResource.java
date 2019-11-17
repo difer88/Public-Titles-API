@@ -1,11 +1,11 @@
 package com.diegofernandes.publictitlesapi.resources;
 
+import com.diegofernandes.publictitlesapi.model.Title;
 import com.diegofernandes.publictitlesapi.services.TitleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,12 +16,17 @@ public class TitleResource {
     @Autowired
     private TitleService titleService;
 
-    @RequestMapping(value = "/alltitlenames", method = RequestMethod.GET)
-    public ResponseEntity<List<String>> findAllTitleNames(){
-        List<String> titleNamesList = titleService.getTitleNamesList();
-        return ResponseEntity.ok().body(titleNamesList);
+    @PostMapping(value = "/findByName", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+    public ResponseEntity<Title> findByName(@RequestParam String titleName){
+        Title title = titleService.getTitleByName(titleName);
+
+        return  ResponseEntity.ok().body(title);
     }
 
-
+    @GetMapping(value = "/alltitlenames")
+    public ResponseEntity<List<String>> findAllTitleNames(){
+        List<String> titleNamesList = titleService.getTitlesListByWebsite();
+        return ResponseEntity.ok().body(titleNamesList);
+    }
 
 }

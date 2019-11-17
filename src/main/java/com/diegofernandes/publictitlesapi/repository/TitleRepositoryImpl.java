@@ -6,16 +6,22 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
-public class TitleRepositoryImpl implements TitleRepository{
+public class TitleRepositoryImpl {
 
-    public List<String> getNamesList(){
+    @Autowired
+    private TitleRepository titleRepository;
+
+    public Title getTitleByName(String titleName){
+        return titleRepository.findByName(titleName);
+    }
+
+    public List<String> getTitlesListByWebsite(){
 
         List<String> titleNamesList = new ArrayList<>();
 
@@ -46,10 +52,8 @@ public class TitleRepositoryImpl implements TitleRepository{
                     List<String> eachText = columns.eachText();
 
                     for(int i = 0; i <= eachText.size() - 1; i++){
-                        titleObject.setTitle(eachText.get(0));
-                        titleObject.setExpiry(eachText.get(1));
-                        titleObject.setYieldRate(eachText.get(2));
-                        titleObject.setUnitPrice(eachText.get(3));
+                        titleObject.setName(eachText.get(0));
+                        titleObject.setDueDate(eachText.get(1));
                     }
 
                     lista.add(titleObject);
@@ -58,13 +62,11 @@ public class TitleRepositoryImpl implements TitleRepository{
             }
 
             for (Title t : lista){
-                System.out.println(t.getTitle());
-                System.out.println(t.getExpiry());
-                System.out.println(t.getYieldRate());
-                System.out.println(t.getUnitPrice());
+                System.out.println(t.getName());
+                System.out.println(t.getDueDate());
             }
 
-            lista.forEach(titulo -> titleNamesList.add(titulo.getTitle()));
+            lista.forEach(titulo -> titleNamesList.add(titulo.getName()));
             
             return titleNamesList;
 

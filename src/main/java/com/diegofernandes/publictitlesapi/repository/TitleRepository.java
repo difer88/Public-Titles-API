@@ -1,9 +1,16 @@
 package com.diegofernandes.publictitlesapi.repository;
 
+import com.diegofernandes.publictitlesapi.model.Title;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
-public interface TitleRepository {
+@Repository
+public interface TitleRepository extends JpaRepository<Title, Long>{
 
-    List<String> getNamesList();
+    Title findByName(String name);
+
+    List<String> getTitlesListByWebsite();
 
 }
