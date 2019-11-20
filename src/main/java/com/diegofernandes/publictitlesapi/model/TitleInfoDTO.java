@@ -2,7 +2,7 @@ package com.diegofernandes.publictitlesapi.model;
 
 import java.util.Objects;
 
-public class TitleDTO {
+public class TitleInfoDTO {
 
     private Integer id;
     private String name;
@@ -13,10 +13,10 @@ public class TitleDTO {
     private Double unityValuePurchase;
     private Double unityValueSale;
 
-    public TitleDTO() {
+    public TitleInfoDTO() {
     }
 
-    public TitleDTO(Integer id, String name, String dueDate, String quoteTime, Double ratePurchase, Double rateSale, Double unityValuePurchase, Double unityValueSale) {
+    public TitleInfoDTO(Integer id, String name, String dueDate, String quoteTime, Double ratePurchase, Double rateSale, Double unityValuePurchase, Double unityValueSale) {
         this.id = id;
         this.name = name;
         this.dueDate = dueDate;
@@ -94,16 +94,16 @@ public class TitleDTO {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof TitleDTO)) return false;
-        TitleDTO titleDTO = (TitleDTO) o;
-        return Objects.equals(getId(), titleDTO.getId()) &&
-                Objects.equals(getName(), titleDTO.getName()) &&
-                Objects.equals(getDueDate(), titleDTO.getDueDate()) &&
-                Objects.equals(getQuoteTime(), titleDTO.getQuoteTime()) &&
-                Objects.equals(getRatePurchase(), titleDTO.getRatePurchase()) &&
-                Objects.equals(getRateSale(), titleDTO.getRateSale()) &&
-                Objects.equals(getUnityValuePurchase(), titleDTO.getUnityValuePurchase()) &&
-                Objects.equals(getUnityValueSale(), titleDTO.getUnityValueSale());
+        if (!(o instanceof TitleInfoDTO)) return false;
+        TitleInfoDTO titleInfoDTO = (TitleInfoDTO) o;
+        return Objects.equals(getId(), titleInfoDTO.getId()) &&
+                Objects.equals(getName(), titleInfoDTO.getName()) &&
+                Objects.equals(getDueDate(), titleInfoDTO.getDueDate()) &&
+                Objects.equals(getQuoteTime(), titleInfoDTO.getQuoteTime()) &&
+                Objects.equals(getRatePurchase(), titleInfoDTO.getRatePurchase()) &&
+                Objects.equals(getRateSale(), titleInfoDTO.getRateSale()) &&
+                Objects.equals(getUnityValuePurchase(), titleInfoDTO.getUnityValuePurchase()) &&
+                Objects.equals(getUnityValueSale(), titleInfoDTO.getUnityValueSale());
     }
 
     @Override
@@ -114,7 +114,7 @@ public class TitleDTO {
 
     @Override
     public String toString() {
-        return "TitleDTO{" +
+        return "TitleInfoDTO{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", dueDate='" + dueDate + '\'' +
