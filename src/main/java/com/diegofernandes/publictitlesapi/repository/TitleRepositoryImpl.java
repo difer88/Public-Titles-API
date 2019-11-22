@@ -47,7 +47,7 @@ public class TitleRepositoryImpl {
 
                     Elements columns = tituloTesouro.children();
 
-                    titleObject = new Title();
+                    titleObject = Title.builder().build();
 
                     List<String> eachText = columns.eachText();
 

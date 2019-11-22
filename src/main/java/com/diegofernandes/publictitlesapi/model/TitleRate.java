@@ -1,18 +1,16 @@
 package com.diegofernandes.publictitlesapi.model;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Date;
 
 @Data
 @Builder
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "titles_rate_tbl")
 public class TitleRate {
@@ -21,7 +19,8 @@ public class TitleRate {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "rate_id")
     private Integer rateId;
-
+    @Column(name = "title_id")
+    private Integer titleId;
     @Column(name = "quote_time")
     private String quoteTime;
     @Column(name = "rate_purchase")
@@ -33,8 +32,7 @@ public class TitleRate {
     @Column(name = "unity_value_sale")
     private BigDecimal unityValueSale;
 
-    @ManyToOne
-    @JoinColumn(name = "title_id", nullable = false)
+    @Transient
     private Title title;
 
 }

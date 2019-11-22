@@ -2,13 +2,14 @@ package com.diegofernandes.publictitlesapi.repository;
 
 import com.diegofernandes.publictitlesapi.model.TitleRate;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
-import java.util.List;
-
-@Repository
 public interface TitleRateRepository extends JpaRepository<TitleRate, Long> {
 
-    List<TitleRate> findAllByTitleIdOrderByRateIdAsc(Integer titleId);
+    @Query("select r from TitleRate r where rateId = (select max(rateId) from TitleRate where titleId = ?1)")
+    TitleRate getLastRate(@Param("titleId") Integer titleId);
+
+    TitleRate findByRateId(Integer rateId);
 
 }
