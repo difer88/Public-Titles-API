@@ -1,18 +1,17 @@
 package com.diegofernandes.publictitlesapi.services;
 
-import com.diegofernandes.publictitlesapi.repository.TitleRepositoryImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.diegofernandes.publictitlesapi.model.Title;
+import com.diegofernandes.publictitlesapi.model.TitleRate;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-@Service
-public class TitleService {
+public interface TitleService {
 
-    @Autowired
-    private TitleRepositoryImpl titleRepository;
+    Title getTitleByName(String titleName);
 
-    public List<String> getTitleNamesList() {
-        return titleRepository.getNamesList();
-    }
+    List<String> getTitlesListByWebsite();
+
+    TitleRate getLastRate(@Param("titleName") String titleName);
+
 }
