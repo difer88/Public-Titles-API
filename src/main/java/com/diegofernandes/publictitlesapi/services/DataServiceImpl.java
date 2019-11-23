@@ -18,8 +18,9 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
-import java.text.ParseException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 @Service
 public class DataServiceImpl implements DataService {
@@ -60,7 +61,7 @@ public class DataServiceImpl implements DataService {
                     if(celula.getColumnIndex() == CommonConstants.QUOTE_TIME_INDEX){
                         lineCells.put(celula.getColumnIndex(), celula.getDateCellValue().toString());
                     } else{
-                        lineCells.put(celula.getColumnIndex(), String.valueOf(celula.getNumericCellValue()));
+                        lineCells.put(celula.getColumnIndex(), celula.toString());
                     }
 
                     System.out.println("Index: " + celula.getColumnIndex() + " Valor: " + celula.toString());
@@ -81,8 +82,6 @@ public class DataServiceImpl implements DataService {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
             e.printStackTrace();
         }
     }

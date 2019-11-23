@@ -1,5 +1,6 @@
 package com.diegofernandes.publictitlesapi.model;
 
+import com.diegofernandes.publictitlesapi.utils.DateParser;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -17,7 +18,7 @@ public class TitleInfoDTO {
     private Integer id;
     private String name;
     private String dueDate;
-    private Date quoteTime;
+    private String quoteTime;
     private Double ratePurchase;
     private Double rateSale;
     private BigDecimal unityValuePurchase;
@@ -27,7 +28,7 @@ public class TitleInfoDTO {
         this.id = titleRate.getTitle().getId();
         this.name = titleRate.getTitle().getName();
         this.dueDate = titleRate.getTitle().getDueDate();
-        this.quoteTime = titleRate.getQuoteTime();
+        this.quoteTime = DateParser.DataBaseDateTimeToStringDate(titleRate.getQuoteTime());
         this.ratePurchase = titleRate.getRatePurchase();
         this.rateSale = titleRate.getRateSale();
         this.unityValuePurchase = titleRate.getUnityValuePurchase();
