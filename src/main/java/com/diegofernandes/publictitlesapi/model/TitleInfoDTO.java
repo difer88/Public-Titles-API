@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Data
 @Builder
@@ -16,7 +17,7 @@ public class TitleInfoDTO {
     private Integer id;
     private String name;
     private String dueDate;
-    private String quoteTime;
+    private Date quoteTime;
     private Double ratePurchase;
     private Double rateSale;
     private BigDecimal unityValuePurchase;
