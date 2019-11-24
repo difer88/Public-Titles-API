@@ -13,9 +13,4 @@ public final class CommonConstants {
     public static final int UNITY_VALUE_PURCHASE_INDEX = 3;
     public static final int UNITY_VALUE_SALE_INDEX = 4;
 
-    public static final String DATE_BAR_SEPARATOR = "/";
-    public static final String HOUR_SEPARATOR = ":";
-    public static final String SPACE_SEPARATOR = " ";
-    public static final String ZERO_SECONDS = "00";
-
 }

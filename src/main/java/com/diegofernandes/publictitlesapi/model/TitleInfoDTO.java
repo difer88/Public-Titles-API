@@ -1,6 +1,8 @@
 package com.diegofernandes.publictitlesapi.model;
 
+import com.diegofernandes.publictitlesapi.serialization.TitleInfoSerializer;
 import com.diegofernandes.publictitlesapi.utils.DateParser;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -13,6 +15,7 @@ import java.util.Date;
 @Builder
 @Getter
 @Setter
+@JsonSerialize(using = TitleInfoSerializer.class)
 public class TitleInfoDTO {
 
     private Integer id;
