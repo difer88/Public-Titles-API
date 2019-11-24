@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface TitleRateRepository extends JpaRepository<TitleRate, Long> {
 
-    @Query("select r from TitleRate r where rateId = (select max(rateId) from TitleRate where titleId = ?1)")
+    @Query("select r from TitleRate r where quoteTime = (select max(quoteTime) from TitleRate where titleId = ?1)")
     TitleRate getLastRate(@Param("titleId") Integer titleId);
 
     TitleRate findByRateId(Integer rateId);

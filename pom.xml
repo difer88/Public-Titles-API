@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.diegofernandes</groupId>
 	<artifactId>publictitlesapi</artifactId>
-	<version>1.2.1-SNAPSHOT</version>
+	<version>1.2.4-SNAPSHOT</version>
 	<name>publictitlesapi</name>
 	<description>Project created for public titles data collection on Web Pages</description>
 

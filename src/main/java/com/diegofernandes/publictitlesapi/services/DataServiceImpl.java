@@ -5,6 +5,7 @@ import com.diegofernandes.publictitlesapi.model.Title;
 import com.diegofernandes.publictitlesapi.model.TitleRate;
 import com.diegofernandes.publictitlesapi.repository.TitleRateRepository;
 import com.diegofernandes.publictitlesapi.repository.TitleRepository;
+import com.diegofernandes.publictitlesapi.utils.DateParser;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -17,7 +18,9 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 @Service
 public class DataServiceImpl implements DataService {
@@ -52,13 +55,21 @@ public class DataServiceImpl implements DataService {
                 Iterator celulas = linha.cellIterator();
 
                 while (celulas.hasNext()) {
+
                     HSSFCell celula = (HSSFCell) celulas.next();
-                    lineCells.put(celula.getColumnIndex(), celula.toString());
+
+                    if(celula.getColumnIndex() == CommonConstants.QUOTE_TIME_INDEX){
+                        lineCells.put(celula.getColumnIndex(), celula.getDateCellValue().toString());
+                    } else{
+                        lineCells.put(celula.getColumnIndex(), celula.toString());
+                    }
+
                     System.out.println("Index: " + celula.getColumnIndex() + " Valor: " + celula.toString());
                 }
 
                 titleRate = TitleRate.builder()
-                        .quoteTime(lineCells.get(CommonConstants.QUOTE_TIME_INDEX))
+                        .titleId(title.getId())
+                        .quoteTime(DateParser.fileStringDateToDataBaseDateTime(lineCells.get(CommonConstants.QUOTE_TIME_INDEX)))
                         .ratePurchase(Double.valueOf(lineCells.get(CommonConstants.RATE_PURCHASE_INDEX)))
                         .rateSale(Double.valueOf(lineCells.get(CommonConstants.RATE_SALE_INDEX)))
                         .unityValuePurchase(new BigDecimal(lineCells.get(CommonConstants.UNITY_VALUE_PURCHASE_INDEX)))

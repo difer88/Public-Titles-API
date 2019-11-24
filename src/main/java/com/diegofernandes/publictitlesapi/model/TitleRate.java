@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Data
 @Builder
@@ -22,7 +23,7 @@ public class TitleRate {
     @Column(name = "title_id")
     private Integer titleId;
     @Column(name = "quote_time")
-    private String quoteTime;
+    private Date quoteTime;
     @Column(name = "rate_purchase")
     private Double ratePurchase;
     @Column(name = "rate_sale")

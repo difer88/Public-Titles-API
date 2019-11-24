@@ -35,6 +35,7 @@ public class TitleServiceImpl implements  TitleService{
         TitleRate titleRate = titleRateRepository.getLastRate(title.getId());
 
         titleRate.setTitle(title);
+        titleRate.setTitleId(title.getId());
 
         return titleRate;
 
